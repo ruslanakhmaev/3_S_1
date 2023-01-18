@@ -21,5 +21,5 @@ if (number > 0)
 }
 else
 {
-    Console.WriteLine("Введено не натуральное число");
+    Console.WriteLine("Введено не натуральное число!");
 }
