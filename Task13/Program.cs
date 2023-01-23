@@ -8,19 +8,27 @@
 //Метод
 int ThirdNum(int number)
 {
+    while (number > 999) //Корректировка после ОС преподавателя: Цикл тоже должен быть в методе, т.к. непостредственно используется для получения результата.
+    {
+        number = number / 10;
+    }
     return number % 10;
 }
 
 //Основной код
 Console.Write("Введите число: ");
 int num = Convert.ToInt32(Console.ReadLine());
+if (num < 0) // Корректировка после ОС преподавателя: Преобразование отрицательных чисел.
+{
+    num = num * -1;
+}
 
 if (num > 100)
 {
-    while (num > 999)
-    {
-        num = num / 10;
-    }
+    // while (num > 999) // Убрал код после ОС преподавателя. Цикл включил в метод. 
+    // {
+    //     num = num / 10;
+    // }
     Console.WriteLine(ThirdNum(num));
 }
 else Console.WriteLine("Третьей цифры нет");

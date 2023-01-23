@@ -8,7 +8,7 @@
 //Метод
 bool WeekEnd(int number)
 {
-   return number > 5;
+   return number > 5 && number < 8; // добавил в метод часть кода "&& number < 8" для проверки на допустимый диапазон
 }
 
 //Основной код
