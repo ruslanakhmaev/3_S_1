@@ -5,31 +5,35 @@
 12821 -> да
 23432 -> да */
 
-Console.WriteLine("Введите пятизначное число");
-int number = Convert.ToInt32(Console.ReadLine());
-// double digitCount = Math.Round(Math.Log10(number), 0, MidpointRounding.ToZero);
-if (number < 0) Console.WriteLine("Отрицательное число");
-else Palindrom(number);
+Console.WriteLine("Введите число");
+double num = Convert.ToDouble(Console.ReadLine());
+double digitCount1 = Math.Round(Math.Log10(num), 0, MidpointRounding.ToZero);
+int count1 = Convert.ToInt32(digitCount1);
+PalindromUniverse(num, digitCount1, count1);
 
-// Метод на 5-ти значное число.
-void Palindrom(int num)
+
+void PalindromUniverse(double number, double digitCount, int count)
 {
-    if (num / 10000 == num % 10)
+    double a = Math.Round(number / Math.Pow(10, count), 0, MidpointRounding.ToZero);
+    double b = number % 10;
+
+    if (a == b)
     {
-        if ((num - (num / 10000 * 10000)) / 1000 == num % 100 / 10)
-            Console.WriteLine("Число палиндром");
+        while (count > 0)
+        {
+            number = (number - (number % 10) - (Math.Round(number / Math.Pow(10, count), 0, MidpointRounding.ToZero) * Math.Pow(10, count))) / 10;
+            count = count - 2;
+            if (a == b)
+            {
+                a = Math.Round(number / Math.Pow(10, count), 0, MidpointRounding.ToZero);
+                b = number % 10;
+            }
+        }
+        if (a == b)
+        {
+            Console.WriteLine("Да");
+        }
+        else Console.WriteLine("Нет");
     }
-    else Console.WriteLine("Число НЕ палиндром");
+    else Console.WriteLine("Нет");
 }
-
-
-// bool PalindromUnivers(int num)
-// {
-//     while (Math.Round(num / Math.Pow(10, count), 0, MidpointRounding.ToZero) == num % 10)
-//     // if (Math.Round(num / Math.Pow(10, Count), 0, MidpointRounding.ToZero) == num % 10)
-//     {
-//         count = count - 1;
-//         Console.WriteLine(count);
-//     }
-//     else Console.WriteLine("Число НЕ палиндром");
-// }
