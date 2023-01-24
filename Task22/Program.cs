@@ -13,7 +13,7 @@ else Table(number);
 void Table(int num)
 {
     int count = 1;
-    while (count <= number)
+    while (count <= num)
     {
         Console.WriteLine($"{count, 5}  {count * count, 5}");
         count++;
